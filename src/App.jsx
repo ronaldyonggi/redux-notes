@@ -15,6 +15,13 @@ const createNote = content => {
   }
 }
 
+const toggleImportanceOf = id => {
+  return {
+    type: 'TOGGLE_IMPORTANCE',
+    payload: { id }
+  }
+}
+
 const store = createStore(noteReducer)
 
 store.dispatch({
@@ -45,10 +52,7 @@ const App = () => {
   }
 
   const toggleImportance = id => {
-    store.dispatch({
-      type: 'TOGGLE_IMPORTANCE',
-      payload: {id}
-    })
+    store.dispatch(toggleImportanceOf(id))
   }
 
   return (
