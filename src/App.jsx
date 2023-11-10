@@ -40,6 +40,13 @@ const App = () => {
     })
   }
 
+  const toggleImportance = id => {
+    store.dispatch({
+      type: 'TOGGLE_IMPORTANCE',
+      payload: {id}
+    })
+  }
+
   return (
     <div>
       <ul>
