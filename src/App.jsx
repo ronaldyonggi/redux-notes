@@ -26,6 +26,20 @@ store.dispatch({
 
 const App = () => {
 
+  const addNote = event => {
+    event.preventDefault()
+    const content = event.target.note.value
+    event.target.note.value = ''
+    store.dispatch({
+      type: 'NEW_NOTE',
+      payload: {
+        content,
+        important: false,
+        id: generateId()
+      }
+    })
+  }
+
   return (
     <div>
       <ul>
