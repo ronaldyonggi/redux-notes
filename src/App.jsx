@@ -2,6 +2,8 @@ import { createStore } from 'redux'
 import './App.css'
 import noteReducer from './reducers/noteReducer'
 
+const generateId = () => Number((Math.random() * 1000000).toFixed(0))
+
 const store = createStore(noteReducer)
 
 store.dispatch({
