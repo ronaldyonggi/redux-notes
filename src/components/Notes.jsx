@@ -16,7 +16,7 @@ const Notes = () => {
 
     return (
         <ul>
-            {notes.map(notes => (
+            {notes.map(note => (
                 <Note
                     key={note.id}
                     note={note}
