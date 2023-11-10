@@ -1,5 +1,6 @@
 import { createStore } from 'redux'
 import './App.css'
+import noteReducer from './reducers/noteReducer'
 
 const store = createStore(noteReducer)
 
