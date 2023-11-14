@@ -71,9 +71,12 @@ const noteSlice = createSlice({
       console.log(JSON.parse(JSON.stringify(state)))
 
       return state.map(note => note.id === id ? updatedNote : note)
+    },
+    appendNote(state, action) {
+      state.push(action.payload)
     }
   }
 })
 
-export const { createNote, toggleImportanceOf } = noteSlice.actions
+export const { createNote, toggleImportanceOf, appendNote } = noteSlice.actions
 export default noteSlice.reducer
