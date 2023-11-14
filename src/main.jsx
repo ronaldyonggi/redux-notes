@@ -6,7 +6,8 @@ import './index.css'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 
-import noteReducer from './reducers/noteReducer.jsx'
+import noteService from './services/notes.jsx'
+import noteReducer, { appendNote } from './reducers/noteReducer.jsx'
 import filterReducer from './reducers/filterReducer.jsx'
 
 import { createNote } from './reducers/noteReducer.jsx'
@@ -29,6 +30,12 @@ const store = configureStore({
 // store.subscribe(() => console.log(store.getState()))
 // store.dispatch(filterChange('IMPORTANT'))
 // store.dispatch(createNote('combineReducers forms one reducer from many simple reducers'))
+
+noteService.getAll().then(notes => 
+  notes.forEach(note => {
+    store.dispatch(appendNote(note))
+  })
+  )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
